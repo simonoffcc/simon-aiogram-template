@@ -13,7 +13,7 @@ class DatabaseConfig:
     name: str | None = getenv('POSTGRES_DATABASE')
     user: str | None = getenv('POSTGRES_USER')
     passwd: str | None = getenv('POSTGRES_PASSWORD', None)
-    port: int = int(getenv('POSTGRES_PORT', 5432))
+    port: int = int(getenv('POSTGRES_PORT', '5432'))
     host: str = getenv('POSTGRES_HOST', 'db')
 
     driver: str = 'asyncpg'
@@ -37,8 +37,8 @@ class RedisConfig:
 
     db: int = int(getenv('REDIS_DATABASE', 1))
     """ Redis Database ID """
-    host: str = getenv('REDIS_HOST', 'redis')
-    port: int = int(getenv('REDIS_PORT', 6379))
+    host: str = getenv('REDIS_HOST', '127.0.0.1')
+    port: int = int(getenv('REDIS_PORT', '6379'))
     passwd: str | None = getenv('REDIS_PASSWORD')
     username: str | None = getenv('REDIS_USERNAME')
     state_ttl: int | None = getenv('REDIS_TTL_STATE', None)
